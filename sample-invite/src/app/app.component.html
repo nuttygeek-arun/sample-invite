@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="inner-div">
+        <h3>Invite Users</h3>
+        <hr>
+        <p>Invite users by email or name and assign roles to them</p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="input-div">
+                <label for="">First Name</label> <br>
+                <input formControlName="firstName" type="text" placeholder="First Name" name="first_name">
+                <p class="error" *ngIf="form.controls.firstName.invalid && (form.controls.firstName.dirty || submitted )"> Please enter First Name</p>
+            </div>
+            <div class="input-div">
+                <label for="">Last Name</label> <br>
+                <input formControlName="lastName" type="text" placeholder="Last Name">
+                <p class="error" *ngIf="form.controls.lastName.invalid && (form.controls.lastName.dirty || submitted )"> Please enter a Valid Last Name</p>
+            </div>
+            <div class="input-div">
+                <label for="">email</label> <br>
+                <input formControlName="email" type="email" placeholder="Email">
+                <p class="error" *ngIf="form.controls.email.invalid && (form.controls.email.dirty || submitted )"> Please enter a valid Email Address</p>
+            </div>
+            <div class="input-div">
+                <label for="">Assign Role</label> <br>
+                <select name="" formControlName='role' id="role-select">
+        <option value="admin">Admin</option>
+        <option value="contributor">Contributor</option>
+        <option value="owner">Owner</option>
+        <option value="editor">Editor</option>
+
+      </select>
+                <p class="error" *ngIf="form.controls.role.invalid && (form.controls.role.dirty || submitted )"> Please enter a valid Email Address</p>
+            </div>
+            <button class="cancel-button">Cancel</button>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</div>
